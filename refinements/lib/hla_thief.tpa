@@ -408,6 +408,8 @@ SAY 0xfe @146
 
 // subtledoctor's EE new stuff here:___________________________________________
 //
+ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
+
 INCLUDE ~refinements/lib/new_specifics.tpa~
 
 LAF d5_resolve_specific STR_VAR new_specific_id = ~D5_NO_UMD~ RET new_specific_ind END
@@ -597,6 +599,7 @@ ACTION_IF !(FILE_EXISTS_IN_GAME ~d5__rfeat.d5~) BEGIN
 */
 END
 
+END
 //end EE new stuff_____________________________________________________________
 
 /* Thief Kits */

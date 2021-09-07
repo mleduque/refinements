@@ -17,7 +17,7 @@ AUTO_TRA ~refinements/languages/english~
 AUTO_TRA ~refinements/%s~
 
 README ~Refinements/README-Refinements.htm~
-VERSION ~beta 4.29~
+VERSION ~beta 4.30~
 
 
 ALWAYS
@@ -118,7 +118,7 @@ ALWAYS
       reload_array = tb#reload
   END
 
-  ACTION_IF NOT FILE_EXISTS ~override/d5_refinements_settings.ini~ BEGIN
+  ACTION_IF !(FILE_EXISTS_IN_GAME ~d5_refinements_settings.ini~) BEGIN
   	COPY ~Refinements/d5_refinements_settings.ini~ ~override~
   END
   	
