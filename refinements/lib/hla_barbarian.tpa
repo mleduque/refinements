@@ -35,7 +35,9 @@ COPY_EXISTING ~projectl.ids~ ~override~
     END
 BUT_ONLY
 
-LAF action_remove_hla STR_VAR kit_name = ~BARBARIAN~ remove_ability = ~GA_SPCL901~ END
+ACTION_IF (hla_remove_barbarian_greater_whirlwind=1) BEGIN
+  LAF action_remove_hla STR_VAR kit_name = ~BARBARIAN~ remove_ability = ~GA_SPCL901~ END
+END
 LAF action_add_hla STR_VAR kit_name = ~BARBARIAN~ ability = ~GA_TG#GCRY~ num_allowed = ~1~ prerequisite = ~GA_SPCL908~ END
 LAF action_add_hla STR_VAR kit_name = ~BARBARIAN~ ability = ~GA_TG#TLES~ num_allowed = ~3~ END
 LAF action_add_hla STR_VAR kit_name = ~BARBARIAN~ ability = ~AP_TG#HSKI~ num_allowed = ~3~ prerequisite = ~GA_SPCL907~ END

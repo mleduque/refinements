@@ -36,11 +36,41 @@ COPY_EXISTING ~projectl.ids~ ~override~
     END
 BUT_ONLY
 
-LAF action_remove_hla STR_VAR kit_name = ~ABJURER~ remove_ability = ~GA_SPWI922~ END
-LAF action_remove_hla STR_VAR kit_name = ~ABJURER~ remove_ability = ~GA_SPWI925~ END
-LAF action_remove_hla STR_VAR kit_name = ~ABJURER~ remove_ability = ~GA_SPCL928~ END
-LAF action_remove_hla STR_VAR kit_name = ~ABJURER~ remove_ability = ~GA_SPCL929~ END
-LAF action_remove_hla STR_VAR kit_name = ~ABJURER~ remove_ability = ~GA_SPCL930~ END
+// Removes GA_SPWI922, 25, 28, 29, 30 (conditionally)
+DEFINE_ACTION_FUNCTION remove_bonus_slot_hlas
+	STR_VAR
+	kit_name = ""
+	all_variable_name = ""
+	kit_variable_name = ""
+BEGIN
+	LAF action_remove_hla STR_VAR kit_name = ~%kit_name%~ remove_ability = ~GA_SPWI922~ END
+	LAF action_remove_hla STR_VAR kit_name = ~%kit_name%~ remove_ability = ~GA_SPWI925~ END
+	ACTION_IF (~%all_variable_name%~ >= 1 OR ~%kit_variable_name%~ >= 3) THEN BEGIN
+		LAF action_remove_hla STR_VAR kit_name = ~%kit_name%~ remove_ability = ~GA_SPCL928~ END
+	END
+	ACTION_IF (~%all_variable_name%~ >= 2 OR ~%kit_variable_name%~ >= 2) THEN BEGIN
+		LAF action_remove_hla STR_VAR kit_name = ~%kit_name%~ remove_ability = ~GA_SPCL929~ END
+	END
+	ACTION_IF (~%all_variable_name%~ >= 3 OR ~%kit_variable_name%~ >= 1) THEN BEGIN
+		LAF action_remove_hla STR_VAR kit_name = ~%kit_name%~ remove_ability = ~GA_SPCL930~ END
+	END
+END
+
+LAF remove_bonus_slot_hlas STR_VAR kit_name=~ABJURER~
+	all_variable_name=~hla_keep_all_mages_bonus_slots~
+	kit_variable_name=~hla_remove_abjurer_bonus_slots~
+END
+//LAF action_remove_hla STR_VAR kit_name = ~ABJURER~ remove_ability = ~GA_SPWI922~ END
+//LAF action_remove_hla STR_VAR kit_name = ~ABJURER~ remove_ability = ~GA_SPWI925~ END
+//ACTION_IF (hla_keep_all_mages_bonus_slots >= 1 OR hla_remove_abjurer_bonus_slots >= 3) THEN BEGIN
+//	LAF action_remove_hla STR_VAR kit_name = ~ABJURER~ remove_ability = ~GA_SPCL928~ END
+//END
+//ACTION_IF (hla_keep_all_mages_bonus_slots >= 2 OR hla_remove_abjurer_bonus_slots >= 2) THEN BEGIN
+//	LAF action_remove_hla STR_VAR kit_name = ~ABJURER~ remove_ability = ~GA_SPCL929~ END
+//END
+//ACTION_IF (hla_keep_all_mages_bonus_slots >= 3 OR hla_remove_abjurer_bonus_slots >= 1) THEN BEGIN
+//	LAF action_remove_hla STR_VAR kit_name = ~ABJURER~ remove_ability = ~GA_SPCL930~ END
+//END
 LAF action_add_hla STR_VAR kit_name = ~ABJURER~ ability = ~GA_TG#DRGB~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~ABJURER~ ability = ~AP_TG#CLEA~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~ABJURER~ ability = ~AP_TG#BONU~ num_allowed = ~1~ prerequisite = ~AP_TG#CLEA~ END
@@ -50,11 +80,10 @@ LAF action_add_hla STR_VAR kit_name = ~ABJURER~ ability = ~GA_TG#FORS~ num_allow
 LAF action_add_hla STR_VAR kit_name = ~ABJURER~ ability = ~GA_LI#SCRB~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~ABJURER~ ability = ~GA_LI#RUNE~ num_allowed = ~1~ END
 
-LAF action_remove_hla STR_VAR kit_name = ~CONJURER~ remove_ability = ~GA_SPWI922~ END
-LAF action_remove_hla STR_VAR kit_name = ~CONJURER~ remove_ability = ~GA_SPWI925~ END
-LAF action_remove_hla STR_VAR kit_name = ~CONJURER~ remove_ability = ~GA_SPCL928~ END
-LAF action_remove_hla STR_VAR kit_name = ~CONJURER~ remove_ability = ~GA_SPCL929~ END
-LAF action_remove_hla STR_VAR kit_name = ~CONJURER~ remove_ability = ~GA_SPCL930~ END
+LAF remove_bonus_slot_hlas STR_VAR kit_name=~CONJURER~ 
+	all_variable_name=~hla_keep_all_mages_bonus_slots~ 
+	kit_variable_name=~hla_remove_conjurer_bonus_slots~
+END
 LAF action_add_hla STR_VAR kit_name = ~CONJURER~ ability = ~GA_TG#DRGB~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~CONJURER~ ability = ~AP_TG#CLEA~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~CONJURER~ ability = ~AP_TG#BONU~ num_allowed = ~1~ prerequisite = ~AP_TG#CLEA~ END
@@ -64,13 +93,14 @@ LAF action_add_hla STR_VAR kit_name = ~CONJURER~ ability = ~GA_TG#FORS~ num_allo
 LAF action_add_hla STR_VAR kit_name = ~CONJURER~ ability = ~GA_LI#SCRB~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~CONJURER~ ability = ~GA_TG#MAGG~ num_allowed = ~1~ END
 
-LAF action_remove_hla STR_VAR kit_name = ~DIVINER~ remove_ability = ~GA_SPWI922~ END
+LAF remove_bonus_slot_hlas STR_VAR kit_name=~DIVINER~ 
+	all_variable_name=~hla_keep_all_mages_bonus_slots~ 
+	kit_variable_name=~hla_remove_diviner_bonus_slots~
+END
+// Diviner: two more HLAs are removed
 LAF action_remove_hla STR_VAR kit_name = ~DIVINER~ remove_ability = ~GA_SPWI923~ END
 LAF action_remove_hla STR_VAR kit_name = ~DIVINER~ remove_ability = ~GA_SPWI924~ END
-LAF action_remove_hla STR_VAR kit_name = ~DIVINER~ remove_ability = ~GA_SPWI925~ END
-LAF action_remove_hla STR_VAR kit_name = ~DIVINER~ remove_ability = ~GA_SPCL928~ END
-LAF action_remove_hla STR_VAR kit_name = ~DIVINER~ remove_ability = ~GA_SPCL929~ END
-LAF action_remove_hla STR_VAR kit_name = ~DIVINER~ remove_ability = ~GA_SPCL930~ END
+
 LAF action_add_hla STR_VAR kit_name = ~DIVINER~ ability = ~GA_TG#DRGB~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~DIVINER~ ability = ~AP_TG#CLEA~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~DIVINER~ ability = ~AP_TG#BONU~ num_allowed = ~1~ prerequisite = ~AP_TG#CLEA~ END
@@ -80,12 +110,13 @@ LAF action_add_hla STR_VAR kit_name = ~DIVINER~ ability = ~GA_TG#FORS~ num_allow
 LAF action_add_hla STR_VAR kit_name = ~DIVINER~ ability = ~GA_LI#SCRB~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~DIVINER~ ability = ~GA_LI#REVE~ num_allowed = ~1~ END
 
+LAF remove_bonus_slot_hlas STR_VAR kit_name=~ENCHANTER~ 
+	all_variable_name=~hla_keep_all_mages_bonus_slots~ 
+	kit_variable_name=~hla_remove_enchanter_bonus_slots~
+END
+// Enchanter: remove one more HLA
 LAF action_remove_hla STR_VAR kit_name = ~ENCHANTER~ remove_ability = ~GA_SPWI920~ END
-LAF action_remove_hla STR_VAR kit_name = ~ENCHANTER~ remove_ability = ~GA_SPWI922~ END
-LAF action_remove_hla STR_VAR kit_name = ~ENCHANTER~ remove_ability = ~GA_SPWI925~ END
-LAF action_remove_hla STR_VAR kit_name = ~ENCHANTER~ remove_ability = ~GA_SPCL928~ END
-LAF action_remove_hla STR_VAR kit_name = ~ENCHANTER~ remove_ability = ~GA_SPCL929~ END
-LAF action_remove_hla STR_VAR kit_name = ~ENCHANTER~ remove_ability = ~GA_SPCL930~ END
+
 LAF action_add_hla STR_VAR kit_name = ~ENCHANTER~ ability = ~GA_TG#DRGB~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~ENCHANTER~ ability = ~AP_TG#CLEA~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~ENCHANTER~ ability = ~AP_TG#BONU~ num_allowed = ~1~ prerequisite = ~AP_TG#CLEA~ END
@@ -95,11 +126,11 @@ LAF action_add_hla STR_VAR kit_name = ~ENCHANTER~ ability = ~GA_TG#FORS~ num_all
 LAF action_add_hla STR_VAR kit_name = ~ENCHANTER~ ability = ~GA_LI#SCRB~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~ENCHANTER~ ability = ~GA_CA#SPWO~ num_allowed = ~1~ END
 
-LAF action_remove_hla STR_VAR kit_name = ~ILLUSIONIST~ remove_ability = ~GA_SPWI922~ END
-LAF action_remove_hla STR_VAR kit_name = ~ILLUSIONIST~ remove_ability = ~GA_SPWI925~ END
-LAF action_remove_hla STR_VAR kit_name = ~ILLUSIONIST~ remove_ability = ~GA_SPCL928~ END
-LAF action_remove_hla STR_VAR kit_name = ~ILLUSIONIST~ remove_ability = ~GA_SPCL929~ END
-LAF action_remove_hla STR_VAR kit_name = ~ILLUSIONIST~ remove_ability = ~GA_SPCL930~ END
+LAF remove_bonus_slot_hlas STR_VAR kit_name=~ILLUSIONIST~ 
+	all_variable_name=~hla_keep_all_mages_bonus_slots~ 
+	kit_variable_name=~hla_remove_illusionist_bonus_slots~
+END
+
 LAF action_add_hla STR_VAR kit_name = ~ILLUSIONIST~ ability = ~GA_TG#DRGB~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~ILLUSIONIST~ ability = ~AP_TG#CLEA~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~ILLUSIONIST~ ability = ~AP_TG#BONU~ num_allowed = ~1~ prerequisite = ~AP_TG#CLEA~ END
@@ -108,11 +139,11 @@ LAF action_add_hla STR_VAR kit_name = ~ILLUSIONIST~ ability = ~GA_TG#FORS~ num_a
 LAF action_add_hla STR_VAR kit_name = ~ILLUSIONIST~ ability = ~GA_LI#SCRB~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~ILLUSIONIST~ ability = ~GA_LI#MICL~ num_allowed = ~1~ END
 
-LAF action_remove_hla STR_VAR kit_name = ~INVOKER~ remove_ability = ~GA_SPWI922~ END
-LAF action_remove_hla STR_VAR kit_name = ~INVOKER~ remove_ability = ~GA_SPWI925~ END
-LAF action_remove_hla STR_VAR kit_name = ~INVOKER~ remove_ability = ~GA_SPCL928~ END
-LAF action_remove_hla STR_VAR kit_name = ~INVOKER~ remove_ability = ~GA_SPCL929~ END
-LAF action_remove_hla STR_VAR kit_name = ~INVOKER~ remove_ability = ~GA_SPCL930~ END
+LAF remove_bonus_slot_hlas STR_VAR kit_name=~INVOKER~ 
+	all_variable_name=~hla_keep_all_mages_bonus_slots~ 
+	kit_variable_name=~hla_remove_invoker_bonus_slots~
+END
+
 LAF action_add_hla STR_VAR kit_name = ~INVOKER~ ability = ~GA_TG#DRGB~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~INVOKER~ ability = ~AP_TG#CLEA~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~INVOKER~ ability = ~AP_TG#BONU~ num_allowed = ~1~ prerequisite = ~AP_TG#CLEA~ END
@@ -122,11 +153,11 @@ LAF action_add_hla STR_VAR kit_name = ~INVOKER~ ability = ~GA_LI#SCRB~ num_allow
 LAF action_add_hla STR_VAR kit_name = ~INVOKER~ ability = ~GA_TG#COME~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~INVOKER~ ability = ~GA_TG#GMAL~ num_allowed = ~1~ END
 
-LAF action_remove_hla STR_VAR kit_name = ~NECROMANCER~ remove_ability = ~GA_SPWI922~ END
-LAF action_remove_hla STR_VAR kit_name = ~NECROMANCER~ remove_ability = ~GA_SPWI925~ END
-LAF action_remove_hla STR_VAR kit_name = ~NECROMANCER~ remove_ability = ~GA_SPCL928~ END
-LAF action_remove_hla STR_VAR kit_name = ~NECROMANCER~ remove_ability = ~GA_SPCL929~ END
-LAF action_remove_hla STR_VAR kit_name = ~NECROMANCER~ remove_ability = ~GA_SPCL930~ END
+LAF remove_bonus_slot_hlas STR_VAR kit_name=~NECROMANCER~ 
+	all_variable_name=~hla_keep_all_mages_bonus_slots~ 
+	kit_variable_name=~hla_remove_necromancer_bonus_slots~
+END
+
 LAF action_add_hla STR_VAR kit_name = ~NECROMANCER~ ability = ~GA_TG#DRGB~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~NECROMANCER~ ability = ~GA_TG#BONE~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~NECROMANCER~ ability = ~AP_TG#CLEA~ num_allowed = ~1~ END
@@ -137,11 +168,11 @@ LAF action_add_hla STR_VAR kit_name = ~NECROMANCER~ ability = ~GA_TG#FORS~ num_a
 LAF action_add_hla STR_VAR kit_name = ~NECROMANCER~ ability = ~GA_LI#SCRB~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~NECROMANCER~ ability = ~GA_TG#DARP~ num_allowed = ~1~ END
 
-LAF action_remove_hla STR_VAR kit_name = ~TRANSMUTER~ remove_ability = ~GA_SPWI922~ END
-LAF action_remove_hla STR_VAR kit_name = ~TRANSMUTER~ remove_ability = ~GA_SPWI925~ END
-LAF action_remove_hla STR_VAR kit_name = ~TRANSMUTER~ remove_ability = ~GA_SPCL928~ END
-LAF action_remove_hla STR_VAR kit_name = ~TRANSMUTER~ remove_ability = ~GA_SPCL929~ END
-LAF action_remove_hla STR_VAR kit_name = ~TRANSMUTER~ remove_ability = ~GA_SPCL930~ END
+LAF remove_bonus_slot_hlas STR_VAR kit_name=~TRANSMUTER~ 
+	all_variable_name=~hla_keep_all_mages_bonus_slots~ 
+	kit_variable_name=~hla_remove_transmuter_bonus_slots~
+END
+
 LAF action_add_hla STR_VAR kit_name = ~TRANSMUTER~ ability = ~GA_TG#DRGB~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~TRANSMUTER~ ability = ~AP_TG#CLEA~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~TRANSMUTER~ ability = ~AP_TG#BONU~ num_allowed = ~1~ prerequisite = ~AP_TG#CLEA~ END
@@ -151,11 +182,11 @@ LAF action_add_hla STR_VAR kit_name = ~TRANSMUTER~ ability = ~GA_TG#FORS~ num_al
 LAF action_add_hla STR_VAR kit_name = ~TRANSMUTER~ ability = ~GA_LI#SCRB~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~TRANSMUTER~ ability = ~GA_TG#ADAM~ num_allowed = ~1~ END
 
-LAF action_remove_hla STR_VAR kit_name = ~WILDMAGE~ remove_ability = ~GA_SPWI922~ END
-LAF action_remove_hla STR_VAR kit_name = ~WILDMAGE~ remove_ability = ~GA_SPWI925~ END
-LAF action_remove_hla STR_VAR kit_name = ~WILDMAGE~ remove_ability = ~GA_SPCL928~ END
-LAF action_remove_hla STR_VAR kit_name = ~WILDMAGE~ remove_ability = ~GA_SPCL929~ END
-LAF action_remove_hla STR_VAR kit_name = ~WILDMAGE~ remove_ability = ~GA_SPCL930~ END
+LAF remove_bonus_slot_hlas STR_VAR kit_name=~WILDMAGE~ 
+	all_variable_name=~hla_keep_all_mages_bonus_slots~ 
+	kit_variable_name=~hla_remove_wildmage_bonus_slots~
+END
+
 LAF action_add_hla STR_VAR kit_name = ~WILDMAGE~ ability = ~GA_TG#DRGB~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~WILDMAGE~ ability = ~AP_TG#CLEA~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~WILDMAGE~ ability = ~AP_TG#BONU~ num_allowed = ~1~ prerequisite = ~AP_TG#CLEA~ END
@@ -165,15 +196,31 @@ LAF action_add_hla STR_VAR kit_name = ~WILDMAGE~ ability = ~GA_TG#FORS~ num_allo
 LAF action_add_hla STR_VAR kit_name = ~WILDMAGE~ ability = ~GA_LI#SCRB~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~WILDMAGE~ ability = ~GA_CA#WSTR~ num_allowed = ~1~ END
 
-LAF action_remove_hla STR_VAR kit_name = ~SORCERER~ remove_ability = ~GA_SPWI920~ END
-LAF action_remove_hla STR_VAR kit_name = ~SORCERER~ remove_ability = ~GA_SPWI921~ END
-LAF action_remove_hla STR_VAR kit_name = ~SORCERER~ remove_ability = ~GA_SPWI922~ END
-LAF action_remove_hla STR_VAR kit_name = ~SORCERER~ remove_ability = ~GA_SPWI923~ END
-LAF action_remove_hla STR_VAR kit_name = ~SORCERER~ remove_ability = ~GA_SPWI924~ END
-LAF action_remove_hla STR_VAR kit_name = ~SORCERER~ remove_ability = ~GA_SPWI925~ END
-LAF action_remove_hla STR_VAR kit_name = ~SORCERER~ remove_ability = ~GA_SPCL928~ END
-LAF action_remove_hla STR_VAR kit_name = ~SORCERER~ remove_ability = ~GA_SPCL929~ END
-LAF action_remove_hla STR_VAR kit_name = ~SORCERER~ remove_ability = ~GA_SPCL930~ END
+ACTION_IF (hla_remove_sorcerer_energy_blade=1) THEN BEGIN
+	LAF action_remove_hla STR_VAR kit_name = ~SORCERER~ remove_ability = ~GA_SPWI920~ END
+END
+ACTION_IF (hla_remove_sorcerer_improved_alacrity=1) THEN BEGIN
+	LAF action_remove_hla STR_VAR kit_name = ~SORCERER~ remove_ability = ~GA_SPWI921~ END
+END
+ACTION_IF (hla_remove_sorcerer_dragon_breath=1) THEN BEGIN
+	LAF action_remove_hla STR_VAR kit_name = ~SORCERER~ remove_ability = ~GA_SPWI922~ END
+END
+ACTION_IF (hla_remove_sorcerer_summon_planetars=1) THEN BEGIN
+	LAF action_remove_hla STR_VAR kit_name = ~SORCERER~ remove_ability = ~GA_SPWI923~ END
+	LAF action_remove_hla STR_VAR kit_name = ~SORCERER~ remove_ability = ~GA_SPWI924~ END
+END
+ACTION_IF (hla_remove_sorcerer_comet = 1) THEN BEGIN
+	LAF action_remove_hla STR_VAR kit_name = ~SORCERER~ remove_ability = ~GA_SPWI925~ END
+END
+ACTION_IF (hla_remove_sorcerer_bonus_slots >= 1) THEN BEGIN
+	LAF action_remove_hla STR_VAR kit_name = ~SORCERER~ remove_ability = ~GA_SPCL930~ END
+END
+ACTION_IF (hla_remove_sorcerer_bonus_slots >= 2) THEN BEGIN
+	LAF action_remove_hla STR_VAR kit_name = ~SORCERER~ remove_ability = ~GA_SPCL929~ END
+END
+ACTION_IF (hla_remove_sorcerer_bonus_slots >= 3) THEN BEGIN
+	LAF action_remove_hla STR_VAR kit_name = ~SORCERER~ remove_ability = ~GA_SPCL928~ END
+END
 LAF action_add_hla STR_VAR kit_name = ~SORCERER~ ability = ~GA_TG#SRES~ num_allowed = ~20~ END
 LAF action_add_hla STR_VAR kit_name = ~SORCERER~ ability = ~GA_TG#CHAM~ num_allowed = ~3~ prerequisite = ~AP_TG#SINF~ END
 LAF action_add_hla STR_VAR kit_name = ~SORCERER~ ability = ~AP_TG#SINF~ num_allowed = ~1~ END
@@ -189,15 +236,33 @@ LAF action_add_hla STR_VAR kit_name = ~SORCERER~ ability = ~GA_TG#SCST~ num_allo
 LAF action_add_hla STR_VAR kit_name = ~SORCERER~ ability = ~GA_TG#IDOF~ num_allowed = ~3~ excluded_by = ~GA_TG#SPOF~ END
 LAF action_add_hla STR_VAR kit_name = ~SORCERER~ ability = ~GA_TG#SPOF~ num_allowed = ~3~ excluded_by = ~GA_TG#IDOF~ END
 
-LAF action_remove_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ remove_ability = ~GA_SPWI920~ END
-LAF action_remove_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ remove_ability = ~GA_SPWI921~ END
-LAF action_remove_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ remove_ability = ~GA_SPWI922~ END
-LAF action_remove_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ remove_ability = ~GA_SPWI923~ END
-LAF action_remove_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ remove_ability = ~GA_SPWI924~ END
-LAF action_remove_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ remove_ability = ~GA_SPWI925~ END
-LAF action_remove_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ remove_ability = ~GA_SPCL928~ END
-LAF action_remove_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ remove_ability = ~GA_SPCL929~ END
-LAF action_remove_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ remove_ability = ~GA_SPCL930~ END
+
+
+ACTION_IF (hla_remove_dragon_disc_energy_blade=1) THEN BEGIN
+	LAF action_remove_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ remove_ability = ~GA_SPWI920~ END
+END
+ACTION_IF (hla_remove_dragon_disc_improved_alacrity=1) THEN BEGIN
+	LAF action_remove_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ remove_ability = ~GA_SPWI921~ END
+END
+ACTION_IF (hla_remove_dragon_disc_dragon_breath=1) THEN BEGIN
+	LAF action_remove_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ remove_ability = ~GA_SPWI922~ END
+END
+ACTION_IF (hla_remove_dragon_disc_summon_planetars=1) THEN BEGIN
+	LAF action_remove_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ remove_ability = ~GA_SPWI923~ END
+	LAF action_remove_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ remove_ability = ~GA_SPWI924~ END
+END
+ACTION_IF (hla_remove_dragon_disc_comet = 1) THEN BEGIN
+	LAF action_remove_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ remove_ability = ~GA_SPWI925~ END
+END
+ACTION_IF (hla_remove_dragon_disc_bonus_slots >= 1) THEN BEGIN
+	LAF action_remove_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ remove_ability = ~GA_SPCL930~ END
+END
+ACTION_IF (hla_remove_dragon_disc_bonus_slots >= 2) THEN BEGIN
+	LAF action_remove_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ remove_ability = ~GA_SPCL929~ END
+END
+ACTION_IF (hla_remove_dragon_disc_bonus_slots >= 3) THEN BEGIN
+	LAF action_remove_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ remove_ability = ~GA_SPCL928~ END
+END
 LAF action_add_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ ability = ~GA_TG#SRES~ num_allowed = ~20~ END
 LAF action_add_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ ability = ~GA_TG#CHAM~ num_allowed = ~3~ prerequisite = ~AP_TG#SINF~ END
 LAF action_add_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ ability = ~AP_TG#SINF~ num_allowed = ~1~ END
