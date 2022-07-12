@@ -120,12 +120,14 @@ This nefarious poison hinders the blood's clotting process, so every successful 
 
 @111 = ~Evasion~
 @112 = ~Evasion
+
 The natural sense of preservation becomes heightened with the use of the Evasion ability. Evasion gives a bonus of 4 to AC and 2 to all saving throws. The effect lasts for 3 rounds.~
 
 @113 = ~Your attempt to create the scroll is successful!~
 @114 = ~It seems you've done something wrong in the enchanting procedure, the scroll is lost.~
 @115 = ~Scribe Scrolls~
 @116 = ~Scribe Scrolls
+
 This ability allows an experienced mage to create spell scrolls with incredibly shortened procedures. 
 The mage can attempt to create a specific scroll, choosing from a set composed by some of the most commonly encountered ones
 (chances of success are lower for higher level spells):
@@ -144,6 +146,7 @@ The mage can attempt to create a specific scroll, choosing from a set composed b
 Notice that even if the process is successful, enchantments placed in such a fast way are necessarily incomplete and unstable, so they will collapse and destroy the scroll itself in about 12 hours.~
 
 @117 = ~Scribe Scrolls
+
 This ability further enhances a rogue's aptitude to emulate tricks used by mages. While handling the procedure to perform a perfect and permanent incantation is impossible without a devoted study of the Arcane Art, any rogue may learn enough to reproduce the very mechanics of the fast and handy process that some experienced mages use to create spell scrolls for immediate casting. 
 The bard can attempt to create a specific scroll, choosing from a set composed by some of the most commonly encountered ones
 (chances of success are lower for higher level spells):
