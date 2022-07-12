@@ -1,43 +1,44 @@
-@-1000 = ~Добро пожаловать в мод Refinements!
+@-1000= ~Welcome to the Refinements mod!
 
-В нем~
-@-1001 = ~отдельных компонентов.
-Для экономии времени, можно решить что, делать со всеми компонентами сразу 
-или же по каждому в отдельности. 
-Обязательно ознакомьтесь с Readme!
+Refinements has~
+@-1001= ~distinct optional components.
+To save time, you can choose what to do with them at a high level rather than 
+being asked about each one.
+This is not suggested if this is your first installation, or you haven't read
+the readme.
 ~
+@-1002= ~What should be done with all components that are NOT YET installed?
+[I]nstall them, [S]kip them, [A]sk about each one? ~
+@-1003= ~What should be done with all components that are ALREADY installed?
+[R]e-install them, [U]ninstall them, [S]kip them, [A]sk about each one? ~
 
-@-1002 = ~Что делать с теми компонентами, которые ЕЩЕ НЕ установлены?
-[I]-Установить, [S]-Пропустить, [A]-Спросить по каждому? ~
-@-1003 = ~Что делать с теми компонентами, которые УЖЕ установлены?
-[R]-Переустановить, [U]-Удалить, [S]-Пропустить, [A]-Спросить по каждому?~
+@-1004= ~Please post the file~
+@-1005= ~at~
 
-@-1004 = ~ПОЖАЛУЙСТА отошлите содержимое файла~
-@-1005 = ~на~
+@-1006= ~What would you like to do with component `~
+@-1007= ~'?
+[R]e-Install, [N]o Change or [U]ninstall or [Q]uit? ~
+@-1008= ~'?
+[Y]es or [N]o or [Q]uit? ~
+// note that the keys are always R,N,U,Q,Y !!
 
-@-1006 = ~Установить компонент [~
-@-1007 = ~]?
-[R]-Переустановить, [N]-Без изменений или [U]-Удалить или [Q]-Выйти?~
-@-1008 = ~]
-[Y]-Да или [N]-Нет или [Q]-Выйти? ~
+@-1009= ~Enter component of a module name: ~
 
+@-1010= ~Re-Installing the `~
+@-1011= ~' component ~
+@-1012= ~Re-Installing Using Language~
 
-@-1009 = ~Введите часть названия модуля: ~
+@-1013= ~Removing old installation of the `~
+@-1014= ~' component first ...~
+@-1015= ~SUCCESSFULLY REMOVED OLD~
 
-@-1010= ~Переустановить`~
-@-1011 = ~` компонент ~
-@-1012= ~Переустановить с использованием языка~
+@-1016= ~Installing~
+@-1017= ~ERROR Installing the `~
+@-1018= ~' component, rolling back to previous state~
+@-1019= ~SUCCESSFULLY INSTALLED~
+@-1020= ~Skipping~
+@-1021= ~Removing the `~
+@-1022= ~' component, which is number ~
+@-1023= ~~
+@-1024= ~SUCCESSFULLY REMOVED THE `~
 
-@-1013 = ~Удаление предыдущей установки [~
-@-1014 = ~] для начала ...~
-@-1015 = ~УСПЕШНО УДАЛЕН УСТАРЕВШИЙ~
-
-@-1016 = ~Установка~
-@-1017 = ~ОШИБКА при установке [~
-@-1018 = ~], откат к предыдущему состоянию~
-@-1019 = ~УСПЕШНО УСТАНОВЛЕН~
-@-1020 = ~Пропуск~
-@-1021 = ~Удаление [~
-@-1022 = ~] (компонент #~
-@-1023 = ~)~
-@-1024 = ~УСПЕШНО УДАЛЕН [~
