@@ -175,7 +175,7 @@ LAF action_remove_hla STR_VAR kit_name = ~SORCERER~ remove_ability = ~GA_SPCL928
 LAF action_remove_hla STR_VAR kit_name = ~SORCERER~ remove_ability = ~GA_SPCL929~ END
 LAF action_remove_hla STR_VAR kit_name = ~SORCERER~ remove_ability = ~GA_SPCL930~ END
 LAF action_add_hla STR_VAR kit_name = ~SORCERER~ ability = ~GA_TG#SRES~ num_allowed = ~20~ END
-LAF action_add_hla STR_VAR kit_name = ~SORCERER~ ability = ~GA_TG#CHAM~ num_allowed = ~3~ prerequisite = ~AP_TG#SINF~ END
+LAF action_add_hla STR_VAR kit_name = ~SORCERER~ ability = ~GA_TG#CHAM~ num_allowed = ~3~ prerequisite = ~GA_TG#SRES~ END
 LAF action_add_hla STR_VAR kit_name = ~SORCERER~ ability = ~AP_TG#SINF~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~SORCERER~ ability = ~GA_TG#SSHA~ num_allowed = ~20~ prerequisite = ~AP_TG#SINF~ END
 LAF action_add_hla STR_VAR kit_name = ~SORCERER~ ability = ~GA_TG#SSPR~ num_allowed = ~3~ prerequisite = ~AP_TG#SINF~ END
@@ -199,7 +199,7 @@ LAF action_remove_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ remove_ability = ~GA_
 LAF action_remove_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ remove_ability = ~GA_SPCL929~ END
 LAF action_remove_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ remove_ability = ~GA_SPCL930~ END
 LAF action_add_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ ability = ~GA_TG#SRES~ num_allowed = ~20~ END
-LAF action_add_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ ability = ~GA_TG#CHAM~ num_allowed = ~3~ prerequisite = ~AP_TG#SINF~ END
+LAF action_add_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ ability = ~GA_TG#CHAM~ num_allowed = ~3~ prerequisite = ~GA_TG#SRES~ END
 LAF action_add_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ ability = ~AP_TG#SINF~ num_allowed = ~1~ END
 LAF action_add_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ ability = ~GA_TG#SSHA~ num_allowed = ~20~ prerequisite = ~AP_TG#SINF~ END
 LAF action_add_hla STR_VAR kit_name = ~DRAGON_DISCIPLE~ ability = ~GA_TG#SSPR~ num_allowed = ~3~ prerequisite = ~AP_TG#SINF~ END
@@ -336,7 +336,7 @@ ACTION_IF (d5_refine_mod_kits = 1) BEGIN
 			LAF action_remove_hla STR_VAR kit_name = EVAL ~%kitlist_name%~ remove_ability = ~GA_SPCL929~ END
 			LAF action_remove_hla STR_VAR kit_name = EVAL ~%kitlist_name%~ remove_ability = ~GA_SPCL930~ END
 			LAF action_add_hla STR_VAR kit_name = EVAL ~%kitlist_name%~ ability = ~GA_TG#SRES~ num_allowed = ~20~ END
-			LAF action_add_hla STR_VAR kit_name = EVAL ~%kitlist_name%~ ability = ~GA_TG#CHAM~ num_allowed = ~3~ prerequisite = ~AP_TG#SINF~ END
+			LAF action_add_hla STR_VAR kit_name = EVAL ~%kitlist_name%~ ability = ~GA_TG#CHAM~ num_allowed = ~3~ prerequisite = ~GA_TG#SRES~ END
 			LAF action_add_hla STR_VAR kit_name = EVAL ~%kitlist_name%~ ability = ~AP_TG#SINF~ num_allowed = ~1~ END
 			LAF action_add_hla STR_VAR kit_name = EVAL ~%kitlist_name%~ ability = ~GA_TG#SSHA~ num_allowed = ~20~ prerequisite = ~AP_TG#SINF~ END
 			LAF action_add_hla STR_VAR kit_name = EVAL ~%kitlist_name%~ ability = ~GA_TG#SSPR~ num_allowed = ~3~ prerequisite = ~AP_TG#SINF~ END
