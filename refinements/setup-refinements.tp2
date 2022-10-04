@@ -17,7 +17,7 @@ AUTO_TRA ~refinements/languages/english~
 AUTO_TRA ~refinements/%s~
 
 README ~Refinements/README-Refinements.htm~
-VERSION ~beta 4.32.1~
+VERSION ~beta 4.33~
 
 
 ALWAYS
@@ -193,6 +193,7 @@ DEPRECATED @13
 
 BEGIN @101
 DESIGNATED 10
+LABEL ~D5_REFINEMENTS_ALL_HLAS~
 REQUIRE_PREDICATE GAME_IS ~soa tob bgt bg2ee eet~ ~HLAs~
 SUBCOMPONENT @100
 //AT_INTERACTIVE_EXIT ~VIEW refinements/Docs/Revised_HLAs.txt~
@@ -213,6 +214,7 @@ INCLUDE ~refinements/lib/hla_thief.tpa~
 
 BEGIN @102
 DESIGNATED 11
+LABEL ~D5_REFINEMENTS_HLAS_BY_CLASS~
 SUBCOMPONENT @100
 //AT_INTERACTIVE_EXIT ~VIEW refinements/Docs/Revised_HLAs.txt~
 
@@ -223,6 +225,7 @@ INCLUDE ~refinements/lib/hlab.tpa~
 
 BEGIN @10101
 DESIGNATED 101
+LABEL ~D5_REFINEMENTS_FIGHTER_HLAS~
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~REFINEMENTS.TP2~ ~11~) ~...~
 
 INCLUDE ~refinements/lib/hla_fighter.tpa~
@@ -232,6 +235,7 @@ INCLUDE ~refinements/lib/hla_fighter.tpa~
 
 BEGIN @10102
 DESIGNATED 102
+LABEL ~D5_REFINEMENTS_BARBARIAN_HLAS~
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~REFINEMENTS.TP2~ ~11~) ~...~
 
 INCLUDE ~refinements/lib/hla_barbarian.tpa~
@@ -241,6 +245,7 @@ INCLUDE ~refinements/lib/hla_barbarian.tpa~
 
 BEGIN @10103
 DESIGNATED 103
+LABEL ~D5_REFINEMENTS_RANGER_HLAS~
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~REFINEMENTS.TP2~ ~11~) ~...~
 
 INCLUDE ~refinements/lib/hla_ranger.tpa~
@@ -250,6 +255,7 @@ INCLUDE ~refinements/lib/hla_ranger.tpa~
 
 BEGIN @10104
 DESIGNATED 104
+LABEL ~D5_REFINEMENTS_PALADIN_HLAS~
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~REFINEMENTS.TP2~ ~11~) ~...~
 
 INCLUDE ~refinements/lib/hla_paladin.tpa~
@@ -259,6 +265,7 @@ INCLUDE ~refinements/lib/hla_paladin.tpa~
 
 BEGIN @10105
 DESIGNATED 105
+LABEL ~D5_REFINEMENTS_CLERIC_HLAS~
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~REFINEMENTS.TP2~ ~11~) ~...~
 
 INCLUDE ~refinements/lib/hla_cleric.tpa~
@@ -268,6 +275,7 @@ INCLUDE ~refinements/lib/hla_cleric.tpa~
 
 BEGIN @10106
 DESIGNATED 106
+LABEL ~D5_REFINEMENTS_DRUID_HLAS~
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~REFINEMENTS.TP2~ ~11~) ~...~
 
 INCLUDE ~refinements/lib/hla_druid.tpa~
@@ -277,6 +285,7 @@ INCLUDE ~refinements/lib/hla_druid.tpa~
 
 BEGIN @10107
 DESIGNATED 107
+LABEL ~D5_REFINEMENTS_MONK_HLAS~
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~REFINEMENTS.TP2~ ~11~) ~...~
 
 INCLUDE ~refinements/lib/hla_monk.tpa~
@@ -286,6 +295,7 @@ INCLUDE ~refinements/lib/hla_monk.tpa~
 
 BEGIN @10108
 DESIGNATED 108
+LABEL ~D5_REFINEMENTS_WIZARD_HLAS~
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~REFINEMENTS.TP2~ ~11~) ~...~
 
 INCLUDE ~refinements/lib/hla_wizard.tpa~
@@ -295,6 +305,7 @@ INCLUDE ~refinements/lib/hla_wizard.tpa~
 
 BEGIN @10109
 DESIGNATED 109
+LABEL ~D5_REFINEMENTS_BARD_HLAS~
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~REFINEMENTS.TP2~ ~11~) ~...~
 
 INCLUDE ~refinements/lib/hla_bard.tpa~
@@ -304,6 +315,7 @@ INCLUDE ~refinements/lib/hla_bard.tpa~
 
 BEGIN @10110
 DESIGNATED 110
+LABEL ~D5_REFINEMENTS_THIEF_HLAS~
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~REFINEMENTS.TP2~ ~11~) ~...~
 
 INCLUDE ~refinements/lib/hla_thief.tpa~
@@ -324,6 +336,7 @@ INCLUDE ~refinements/lib/hla_thief.tpa~
 
 BEGIN @600
 DESIGNATED 20
+LABEL ~D5_SWASHIMOEN_FULL~
 SUBCOMPONENT @601
 
 INCLUDE ~refinements/lib/swashimoen.tpa~
@@ -334,6 +347,7 @@ INCLUDE ~refinements/lib/swashimoen.tpa~
 //Swashimoen, kit change only.
 
 BEGIN @602
+LABEL ~D5_SWASHIMOEN_KIT_ONLY~
 SUBCOMPONENT @601
 
 
@@ -358,6 +372,7 @@ COPY_EXISTING ~imoen10.cre~ ~override~
 //Swashimoen, Detect Illusions rather than Set Traps.
 
 BEGIN @603
+LABEL ~D5_SWASHIMOEN_DETECT_ILLUSIONS~
 SUBCOMPONENT @601
 
 INCLUDE ~refinements/lib/swashimoen.tpa~
@@ -377,6 +392,7 @@ COPY_EXISTING ~imoen10.cre~ ~override~
 
 BEGIN @701
 DESIGNATED 30
+LABEL ~D5_REFINEMENTS_SHAPESHIFTING_FIX~
 SUBCOMPONENT @700
 COPY_EXISTING ~sw1h01.itm~ ~override/tb#shap_std.txt~
 AT_INTERACTIVE_EXIT ~VIEW refinements/Docs/Shapefix.txt~
@@ -414,6 +430,7 @@ END
 
 BEGIN @800
 DESIGNATED 40
+LABEL ~REFINEMENTS_UNIVERSAL_ROBES~
 
 COPY_EXISTING ~CLCK09.ITM~	 ~override/CLCK09.ITM~
               ~CLCK10.ITM~	 ~override/CLCK10.ITM~
@@ -462,6 +479,7 @@ DEPRECATED @2010
 BEGIN @2003
 SUBCOMPONENT @2000
 DESIGNATED 70
+LABEL ~D5_REFINEMENTS_REVISED_ARMOR_LOCAL_DESC_UPDATE~
 REQUIRE_PREDICATE !(~%LANGUAGE%~ STRING_EQUAL_CASE ~languages/english~) @2005
 FORBID_COMPONENT ~item_rev.tp2~ 0 @2012
 COPY_EXISTING ~sw1h01.itm~ ~override/tb#localdescriptionsforarmor.txt~
@@ -472,6 +490,7 @@ INCLUDE ~refinements/lib/armor.tpa~
 
 BEGIN @2004
 SUBCOMPONENT @2000
+LABEL ~REFINEMENTS_REVISED_ARMOR_ENG_OR_LOCAL_DESC_UPDATE~
 REQUIRE_PREDICATE !(~%LANGUAGE%~ STRING_EQUAL_CASE ~languages/english~) @2005
 FORBID_COMPONENT ~item_rev.tp2~ 0 @2012
 COPY_EXISTING ~sw1h01.itm~ ~override/tb#generdescriptionsforarmor.txt~
@@ -482,6 +501,7 @@ INCLUDE ~refinements/lib/armor.tpa~
 
 BEGIN @2007
 SUBCOMPONENT @2000
+LABEL ~REFINEMENTS_REVISED_ARMOR_NO_DESC_UPDATE~
 REQUIRE_PREDICATE !(~%LANGUAGE%~ STRING_EQUAL_CASE ~languages/english~) @2005
 FORBID_COMPONENT ~item_rev.tp2~ 0 @2012
 INCLUDE ~refinements/lib/armor.tpa~
@@ -491,6 +511,7 @@ INCLUDE ~refinements/lib/armor.tpa~
 
 BEGIN @2008
 SUBCOMPONENT @2009
+LABEL ~REFINEMENTS_REVISED_ARMOR_ENGLISH_DESC_UPDATE~
 REQUIRE_PREDICATE (~%LANGUAGE%~ STRING_EQUAL_CASE ~languages/english~) @2006
 FORBID_COMPONENT ~item_rev.tp2~ 0 @2012
 COPY_EXISTING ~sw1h01.itm~ ~override/tb#generdescriptionsforarmor.txt~
@@ -501,6 +522,7 @@ INCLUDE ~refinements/lib/armor.tpa~
 
 BEGIN @2007
 SUBCOMPONENT @2009
+LABEL ~REFINEMENTS_REVISED_ARMOR_ENGLISH_NO_DESC_UPDATE~
 REQUIRE_PREDICATE (~%LANGUAGE%~ STRING_EQUAL_CASE ~languages/english~) @2006
 FORBID_COMPONENT ~item_rev.tp2~ 0 @2012
 INCLUDE ~refinements/lib/armor.tpa~
@@ -510,6 +532,7 @@ INCLUDE ~refinements/lib/armor.tpa~
 
 BEGIN @2011
 SUBCOMPONENT @2009
+LABEL ~REFINEMENTS_REVISED_ARMOR_NO_DESC_UPDATE_NO_PENALTIES~
 REQUIRE_PREDICATE (~%LANGUAGE%~ STRING_EQUAL_CASE ~languages/english~) @2006
 FORBID_COMPONENT ~item_rev.tp2~ 0 @2012
 COPY_EXISTING ~sw1h01.itm~ ~override/tb#nomovementratepenalties.txt~
