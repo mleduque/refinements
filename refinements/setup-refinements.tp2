@@ -6,7 +6,7 @@ Adapted for EE circa 2016 by SubtleDoctor
 **************************** */
 
 
-BACKUP ~refinements/backup~
+BACKUP ~weidu_external/backup/refinements~
 AUTHOR ~http://forums.spellholdstudios.net/index.php?showforum=116~
 NO_IF_EVAL_BUG
 
@@ -17,7 +17,7 @@ AUTO_TRA ~refinements/languages/english~
 AUTO_TRA ~refinements/%s~
 
 README ~Refinements/README-Refinements.htm~
-VERSION ~beta 4.33~
+VERSION ~beta 4.34~
 
 
 ALWAYS
