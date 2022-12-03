@@ -1,3 +1,5 @@
+//HLA FUNCTIONS_____________________________________________________________________
+//
 DEFINE_PATCH_FUNCTION patch_add_hla
   STR_VAR
 	2da_row = ~1~
@@ -37,7 +39,6 @@ BEGIN
   PRETTY_PRINT_2DA
 END
 
-
 DEFINE_PATCH_FUNCTION patch_remove_hla
   STR_VAR
     remove_ability = ~*~
@@ -54,7 +55,6 @@ BEGIN
     END
   END
 END
-
 
 DEFINE_PATCH_FUNCTION patch_replace_hla
   STR_VAR
@@ -105,7 +105,6 @@ BEGIN
   PRETTY_PRINT_2DA
 END
 
-
 DEFINE_ACTION_FUNCTION get_hla_table
   STR_VAR
     kit_name = ~~
@@ -126,7 +125,6 @@ BEGIN
     END
   END
 END
-
 
 DEFINE_ACTION_FUNCTION action_add_hla
   STR_VAR
@@ -173,18 +171,18 @@ BEGIN
 	      END
 	    END  
 	    PATCH_IF (VARIABLE_IS_SET %first_empty_row%) BEGIN
-              PATCH_IF (cols = 9) BEGIN
+          PATCH_IF (cols = 9) BEGIN
 	        INSERT_2DA_ROW (~%first_empty_row%~) %cols% ~%2da_row% %ability% %icon% %strref% %min_lev% %max_level% %num_allowed% %prerequisite% %excluded_by%~
 	      END
-              PATCH_IF (cols = 10) BEGIN
+          PATCH_IF (cols = 10) BEGIN
 	        INSERT_2DA_ROW (~%first_empty_row%~) %cols% ~%2da_row% %ability% %icon% %strref% %min_lev% %max_level% %num_allowed% %prerequisite% %excluded_by% %alignment_restrict%~
 	      END
 	    END 
 	    ELSE BEGIN
-              PATCH_IF (cols = 9) BEGIN
+          PATCH_IF (cols = 9) BEGIN
 	        INSERT_2DA_ROW (%rows%) %cols% ~%2da_row% %ability% %icon% %strref% %min_lev% %max_level% %num_allowed% %prerequisite% %excluded_by%~
 	      END
-              PATCH_IF (cols = 10) BEGIN
+          PATCH_IF (cols = 10) BEGIN
 	        INSERT_2DA_ROW (%rows%) %cols% ~%2da_row% %ability% %icon% %strref% %min_lev% %max_level% %num_allowed% %prerequisite% %excluded_by% %alignment_restrict%~
 	      END
 	    END
@@ -232,18 +230,18 @@ BEGIN
       PATCH_IF (VARIABLE_IS_SET %first_empty_row%) BEGIN
         PATCH_IF (cols = 9) BEGIN
           INSERT_2DA_ROW (~%first_empty_row%~) %cols% ~%2da_row% %ability% %icon% %strref% %min_lev% %max_level% %num_allowed% %prerequisite% %excluded_by%~
-	END
+        END
         PATCH_IF (cols = 10) BEGIN
           INSERT_2DA_ROW (~%first_empty_row%~) %cols% ~%2da_row% %ability% %icon% %strref% %min_lev% %max_level% %num_allowed% %prerequisite% %excluded_by% %alignment_restrict%~
-	END
+        END
       END 
       ELSE BEGIN
         PATCH_IF (cols = 9) BEGIN
           INSERT_2DA_ROW (%rows%) %cols% ~%2da_row% %ability% %icon% %strref% %min_lev% %max_level% %num_allowed% %prerequisite% %excluded_by%~
-	END
+        END
         PATCH_IF (cols = 10) BEGIN
           INSERT_2DA_ROW (%rows%) %cols% ~%2da_row% %ability% %icon% %strref% %min_lev% %max_level% %num_allowed% %prerequisite% %excluded_by% %alignment_restrict%~
-	END
+        END
       END
       PRETTY_PRINT_2DA
 	BUT_ONLY
@@ -372,18 +370,18 @@ BEGIN
 	      END
 	    END  
 	    PATCH_IF (VARIABLE_IS_SET %first_empty_row%) BEGIN
-              PATCH_IF (cols = 9) BEGIN
+          PATCH_IF (cols = 9) BEGIN
 	        INSERT_2DA_ROW (~%first_empty_row%~ - 1) %cols% ~%2da_row% %ability% %icon% %strref% %min_lev% %max_level% %num_allowed% %prerequisite% %excluded_by%~
 	      END
-              PATCH_IF (cols = 10) BEGIN
+          PATCH_IF (cols = 10) BEGIN
 	        INSERT_2DA_ROW (~%first_empty_row%~ - 1) %cols% ~%2da_row% %ability% %icon% %strref% %min_lev% %max_level% %num_allowed% %prerequisite% %excluded_by% %alignment_restrict%~
 	      END
 	    END 
 	    ELSE BEGIN
-              PATCH_IF (cols = 9) BEGIN
+          PATCH_IF (cols = 9) BEGIN
 	        INSERT_2DA_ROW (rows - 1) %cols% ~%2da_row% %ability% %icon% %strref% %min_lev% %max_level% %num_allowed% %prerequisite% %excluded_by%~
 	      END
-              PATCH_IF (cols = 10) BEGIN
+          PATCH_IF (cols = 10) BEGIN
 	        INSERT_2DA_ROW (rows - 1) %cols% ~%2da_row% %ability% %icon% %strref% %min_lev% %max_level% %num_allowed% %prerequisite% %excluded_by% %alignment_restrict%~
 	      END
 	    END

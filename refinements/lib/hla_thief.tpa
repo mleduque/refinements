@@ -412,9 +412,14 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 
 INCLUDE ~refinements/lib/new_specifics.tpa~
 
-LAF d5_resolve_specific STR_VAR new_specific_id = ~D5_NO_UMD~ RET new_specific_ind END
-
-OUTER_SET no_umd_specific = %new_specific_ind%
+OUTER_SET spec_ids = IDS_OF_SYMBOL (~specific~ ~D5_NO_UMD~)
+ACTION_IF (spec_ids = 0 - 1) BEGIN  
+    LAF d5_resolve_specific STR_VAR new_specific_id = ~D5_NO_UMD~ RET new_specific_ind END
+    OUTER_SET no_umd_specific = %new_specific_ind%
+END
+ACTION_IF (spec_ids > 0) BEGIN
+    OUTER_SET no_umd_specific = %spec_ids%
+END
 
 ACTION_IF !(FILE_EXISTS_IN_GAME ~d5_numd.spl~) BEGIN
  COPY ~refinements/Hlab/thief/ee/d5_nscrl.spl~ ~override/d5_numd.spl~
