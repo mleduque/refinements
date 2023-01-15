@@ -6,7 +6,7 @@ ACTION_IF (FILE_EXISTS ~override/tb#localdescriptionsforarmor.txt~)  OR
 				(FILE_EXISTS ~override/tb#generdescriptionsforarmor.txt~) THEN // wants english strings
 		BEGIN
 		// load the descriptions from the english "2da'd tra"
-		COPY ~refinements/languages/english/armor/ident.tp2~ ~refinements/languages/english/armor/ident.tp2~
+		COPY ~refinements/languages/english/armor/ident.tph~ ~refinements/languages/english/armor/ident.tph~
 			SPRINT ~findwheretra~ ~languages/english~
 			READ_2DA_ENTRIES_NOW ~totalrows~ 1
 			FOR (i = 0; i < totalrows; i += 1)
@@ -17,7 +17,7 @@ ACTION_IF (FILE_EXISTS ~override/tb#localdescriptionsforarmor.txt~)  OR
 				END
 		BUT_ONLY_IF_IT_CHANGES
 
-		COPY ~refinements/languages/english/armor/unide.tp2~ ~refinements/languages/english/armor/unide.tp2~
+		COPY ~refinements/languages/english/armor/unide.tph~ ~refinements/languages/english/armor/unide.tph~
 			READ_2DA_ENTRIES_NOW ~totalrows~ 1
 			FOR (i = 0; i < totalrows; i += 1)
 				BEGIN
@@ -38,9 +38,9 @@ ACTION_IF (FILE_EXISTS ~override/tb#localdescriptionsforarmor.txt~)  OR
 				SPRINT ~findwheretra~ ~%LANGUAGE%~
 			BUT_ONLY_IF_IT_CHANGES
 			END
-		ACTION_IF FILE_CONTAINS_EVALUATED (~refinements/%LANGUAGE%/armor/ident.tp2~ ~___NL___~) THEN // file exists
+		ACTION_IF FILE_CONTAINS_EVALUATED (~refinements/%LANGUAGE%/armor/ident.tph~ ~___NL___~) THEN // file exists
 			BEGIN
-			COPY ~refinements/%LANGUAGE%/armor/ident.tp2~ ~refinements/%LANGUAGE%/armor/ident.tp2~
+			COPY ~refinements/%LANGUAGE%/armor/ident.tph~ ~refinements/%LANGUAGE%/armor/ident.tph~
 			READ_2DA_ENTRIES_NOW ~totalrows~ 1
 			FOR (i = 0; i < totalrows; i += 1)
 				BEGIN
@@ -51,9 +51,9 @@ ACTION_IF (FILE_EXISTS ~override/tb#localdescriptionsforarmor.txt~)  OR
 			BUT_ONLY_IF_IT_CHANGES
 			END
 
-		ACTION_IF FILE_CONTAINS_EVALUATED (~refinements/%LANGUAGE%/armor/unide.tp2~ ~___NL___~) THEN // file exists
+		ACTION_IF FILE_CONTAINS_EVALUATED (~refinements/%LANGUAGE%/armor/unide.tph~ ~___NL___~) THEN // file exists
 			BEGIN
-			COPY ~refinements/%LANGUAGE%/armor/unide.tp2~ ~refinements/%LANGUAGE%/armor/unide.tp2~
+			COPY ~refinements/%LANGUAGE%/armor/unide.tph~ ~refinements/%LANGUAGE%/armor/unide.tph~
 			READ_2DA_ENTRIES_NOW ~totalrows~ 1
 			FOR (i = 0; i < totalrows; i += 1)
 				BEGIN
