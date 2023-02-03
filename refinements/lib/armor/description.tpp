@@ -2,7 +2,7 @@
 					FILE_EXISTS ~override/tb#localdescriptionsforarmor.txt~
 
 			BEGIN
-			PATCH_IF FILE_CONTAINS_EVALUATED (~refinements/%findwheretra%/armor/ident.tp2~ ~^%file_name% ~)
+			PATCH_IF FILE_CONTAINS_EVALUATED (~refinements/%findwheretra%/armor/ident.tph~ ~^%file_name% ~)
 				BEGIN
 				SPRINT desc EVALUATE_BUFFER ~identarray_%file_name%~
 				SPRINT desc EVALUATE_BUFFER ~%%desc%%~
@@ -73,7 +73,7 @@
 				END
 			END
 
-			PATCH_IF FILE_CONTAINS_EVALUATED (~refinements/%findwheretra%/armor/unide.tp2~ ~^%file_name% ~)
+			PATCH_IF FILE_CONTAINS_EVALUATED (~refinements/%findwheretra%/armor/unide.tph~ ~^%file_name% ~)
 				//has own desc
 				BEGIN
 				SPRINT desc EVALUATE_BUFFER ~unidearray_%file_name%~
@@ -93,7 +93,7 @@
 
 			ELSE
 				BEGIN
-				PATCH_IF FILE_CONTAINS_EVALUATED (~refinements/%findwheretra%/armor/unide.tp2~ ~^%whatis% ~)
+				PATCH_IF FILE_CONTAINS_EVALUATED (~refinements/%findwheretra%/armor/unide.tph~ ~^%whatis% ~)
 				//has generic desc
 					BEGIN
 				SPRINT desc EVALUATE_BUFFER ~unidearray_%whatis%~
